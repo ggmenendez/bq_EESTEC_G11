@@ -16,6 +16,7 @@ import com.dd.processbutton.iml.ActionProcessButton;
 import com.google.gson.JsonObject;
 import com.jgcheca.bq_contest.rest.RestClient;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -35,11 +36,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        btnSignIn = (ActionProcessButton) findViewById(R.id.btnLogin);
-
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        btnSignIn = (ActionProcessButton) findViewById(R.id.btnLogin);
 
     }
 
@@ -92,25 +93,28 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 // Prints the correct String representation of body.
-                Log.i("RETROFIT response", String.valueOf(out));
+                Log.d("RETROFIT response", String.valueOf(out));
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
             startActivity(loginIntent);
             btnSignIn.setProgress(0);
+
         }
 
         @Override
         public void failure(RetrofitError error) {
-            Log.i("LoginActivity", "EPIC FAIL!");
-            Log.i("LoginActivity", error.toString());
+            Log.d("LoginActivity", "FAILURE");
+            Log.d("LoginActivity", error.toString());
 
             Toast.makeText(LoginActivity.this,
                     "Your Message", Toast.LENGTH_SHORT).show();
             btnSignIn.setProgress(0);
+
         }
     });
     }
+
 }
 
