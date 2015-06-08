@@ -1,4 +1,4 @@
-package com.jgcheca.bq_contest;
+package com.jgcheca.kiuwan_droid;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.dd.processbutton.iml.ActionProcessButton;
 import com.google.gson.JsonObject;
-import com.jgcheca.bq_contest.rest.RestClient;
+import com.jgcheca.kiuwan_droid.rest.RestClient;
 
 
 import java.io.BufferedReader;
@@ -100,7 +100,8 @@ public class LoginActivity extends AppCompatActivity {
 
             startActivity(loginIntent);
             btnSignIn.setProgress(0);
-
+            Toast.makeText(LoginActivity.this,
+                    "Successfully logged in", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -108,8 +109,29 @@ public class LoginActivity extends AppCompatActivity {
             Log.d("LoginActivity", "FAILURE");
             Log.d("LoginActivity", error.toString());
 
-            Toast.makeText(LoginActivity.this,
-                    "Your Message", Toast.LENGTH_SHORT).show();
+            Log.d("Tipo de error", error.getKind().toString());
+
+           // Log.d("Tipo de error", error.);
+            //error.isNetworkError()
+           switch (error.getKind()){
+               case NETWORK:
+                   Toast.makeText(LoginActivity.this,
+                           "Network unavailable", Toast.LENGTH_SHORT).show();
+                   break;
+               case HTTP:
+                   Toast.makeText(LoginActivity.this,
+                           "Credentials wrong", Toast.LENGTH_SHORT).show();
+                   break;
+               case UNEXPECTED:
+                   Toast.makeText(LoginActivity.this,
+                           "UNEXPECTED", Toast.LENGTH_SHORT).show();
+                   break;
+               case CONVERSION:
+                   Toast.makeText(LoginActivity.this,
+                           "CONVERSION", Toast.LENGTH_SHORT).show();
+                   break;
+           }
+
             btnSignIn.setProgress(0);
 
         }

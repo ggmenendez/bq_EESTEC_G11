@@ -12,9 +12,9 @@ You need an account to log into Kiuwan Android App. Kiuwan provides you with fre
 
 Manage your account from Kiuwan client
 
-## Result of analysis
+## Results of analysis
 
-Get result of your apps analysis.
+Get results of your apps analysis.
 
 
 ## License

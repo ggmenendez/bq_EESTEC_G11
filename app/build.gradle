@@ -5,7 +5,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "com.jgcheca.bq_contest"
+        applicationId "com.jgcheca.kiuwan_droid"
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1

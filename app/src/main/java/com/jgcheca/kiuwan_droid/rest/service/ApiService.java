@@ -1,8 +1,8 @@
-package com.jgcheca.bq_contest.rest.service;
+package com.jgcheca.kiuwan_droid.rest.service;
 
 import com.google.gson.JsonObject;
-import com.jgcheca.bq_contest.User;
-import com.jgcheca.bq_contest.rest.model.AppKiuwan;
+import com.jgcheca.kiuwan_droid.User;
+import com.jgcheca.kiuwan_droid.rest.model.AppKiuwan;
 
 import java.util.List;
 

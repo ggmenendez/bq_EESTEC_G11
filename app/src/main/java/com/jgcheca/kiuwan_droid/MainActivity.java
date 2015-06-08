@@ -1,27 +1,9 @@
-package com.jgcheca.bq_contest;
+package com.jgcheca.kiuwan_droid;
 
-import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.jgcheca.bq_contest.rest.RestClient;
-import com.jgcheca.bq_contest.rest.model.AppKiuwan;
-import com.jgcheca.bq_contest.rest.service.ApiService;
-
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
-
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
-import retrofit.mime.TypedInput;
 
 
 public class MainActivity extends AppCompatActivity{

@@ -1,4 +1,4 @@
-package com.jgcheca.bq_contest;
+package com.jgcheca.kiuwan_droid;
 
 
 import android.content.Context;

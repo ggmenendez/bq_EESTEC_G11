@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Bq_Contest</string>
-
+    <string name="app_name">Kiuwan Droid</string>
+    <string name="main_title">Home</string>
+    <string name="login_title">Log in</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 </resources>

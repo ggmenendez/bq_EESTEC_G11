@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.jgcheca.bq_contest.LoginActivity"
+    tools:context="com.jgcheca.kiuwan_droid.LoginActivity"
     android:fitsSystemWindows="true"
     android:background="@drawable/gradient"
     >
@@ -21,100 +21,115 @@
         app:popupTheme="@style/AppTheme"
         app:layout_scrollFlags="scroll|enterAlways" />
 
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:id="@+id/logo"
-        android:src="@drawable/kiuwan"
-        android:layout_alignLeft="@+id/emailIL"
-        android:layout_alignStart="@+id/emailIL"
-        android:layout_above="@+id/emailIL"
-        android:layout_alignRight="@+id/emailIL"
-        android:layout_alignEnd="@+id/emailIL"
-        android:layout_marginTop="20sp"
-        android:layout_alignParentTop="true"/>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:orientation="vertical"
-
-    android:layout_marginTop="15dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
-    >
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/emailIL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15sp"
-        android:layout_gravity="center_horizontal">
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtUser"
-        android:inputType="text"
-        android:ems="10"
-        android:hint="Username"
-        android:textColor="@color/abc_secondary_text_material_dark"
-        android:textSize="14sp"
-        android:drawablePadding="4sp"/>
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/passwordIL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-
-        android:layout_marginTop="15sp"
-        android:layout_gravity="center_horizontal">
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/txtPassword"
-        android:textColor="@color/abc_secondary_text_material_dark"
-        android:hint="Password"
-        android:textSize="14sp"
-
-        android:drawablePadding="4sp" />
-    </android.support.design.widget.TextInputLayout>
-
-
-
-    <com.dd.processbutton.iml.ActionProcessButton
-        android:id="@+id/btnLogin"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:textColor="@android:color/white"
-        custom:pb_colorNormal="@color/colorPrimary"
-        custom:pb_colorPressed="@color/colorPrimaryDark"
-        android:onClick="Login"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center_horizontal" />
-    <!--<Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/login_button"
-        android:layout_below="@+id/forgot"
-        android:background="#d32f2f"
-        android:textColor="#ffffffff"
-        android:typeface="normal"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textSize="10sp"
-        android:layout_marginTop="25sp"
-        android:nestedScrollingEnabled="false"
-        android:layout_centerHorizontal="true"
-        android:minHeight="30dp"
-        android:minWidth="68dp"
-        tools:ignore="MissingPrefix"
-        android:onClick="Login"
-        android:layout_gravity="center_horizontal" />-->
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:id="@+id/logo"
+                android:src="@drawable/kiuwan"
+                android:layout_alignLeft="@+id/emailIL"
+                android:layout_alignStart="@+id/emailIL"
+                android:layout_above="@+id/emailIL"
+                android:layout_alignRight="@+id/emailIL"
+                android:layout_alignEnd="@+id/emailIL"
+                android:layout_marginTop="20sp"
+                android:layout_alignParentTop="true"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                >
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/emailIL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15sp"
+                    android:layout_gravity="center_horizontal">
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtUser"
+                        android:inputType="text"
+                        android:ems="10"
+                        android:hint="Username"
+                        android:textColor="@color/abc_secondary_text_material_dark"
+                        android:textSize="14sp"
+                        android:drawablePadding="4sp"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/passwordIL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+
+                    android:layout_marginTop="15sp"
+                    android:layout_gravity="center_horizontal">
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:ems="10"
+                        android:id="@+id/txtPassword"
+                        android:textColor="@color/abc_secondary_text_material_dark"
+                        android:hint="Password"
+                        android:textSize="14sp"
+
+                        android:drawablePadding="4sp" />
+                </android.support.design.widget.TextInputLayout>
+
+
+
+                <com.dd.processbutton.iml.ActionProcessButton
+                    android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:textColor="@android:color/white"
+                    custom:pb_colorNormal="@color/colorPrimary"
+                    custom:pb_colorPressed="@color/colorPrimaryDark"
+                    android:onClick="Login"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp" />
+                <!--<Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:id="@+id/login_button"
+                    android:layout_below="@+id/forgot"
+                    android:background="#d32f2f"
+                    android:textColor="#ffffffff"
+                    android:typeface="normal"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textSize="10sp"
+                    android:layout_marginTop="25sp"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_centerHorizontal="true"
+                    android:minHeight="30dp"
+                    android:minWidth="68dp"
+                    tools:ignore="MissingPrefix"
+                    android:onClick="Login"
+                    android:layout_gravity="center_horizontal" />-->
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
-    </LinearLayout>

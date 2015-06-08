@@ -1,9 +1,9 @@
-package com.jgcheca.bq_contest.rest;
+package com.jgcheca.kiuwan_droid.rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.jgcheca.bq_contest.rest.service.ApiService;
-import com.jgcheca.bq_contest.rest.service.SessionRequestInterceptor;
+import com.jgcheca.kiuwan_droid.rest.service.ApiService;
+import com.jgcheca.kiuwan_droid.rest.service.SessionRequestInterceptor;
 
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;

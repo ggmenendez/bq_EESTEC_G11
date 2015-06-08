@@ -1,6 +1,4 @@
-package com.jgcheca.bq_contest.rest.service;
-
-import android.util.Base64;
+package com.jgcheca.kiuwan_droid.rest.service;
 
 import retrofit.RequestInterceptor;
 
