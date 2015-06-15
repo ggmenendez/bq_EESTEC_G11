@@ -67,6 +67,7 @@
                         android:inputType="text"
                         android:ems="10"
                         android:hint="Username"
+
                         android:textColor="@color/abc_secondary_text_material_dark"
                         android:textSize="14sp"
                         android:drawablePadding="4sp"/>
@@ -86,6 +87,7 @@
                         android:inputType="textPassword"
                         android:ems="10"
                         android:id="@+id/txtPassword"
+
                         android:textColor="@color/abc_secondary_text_material_dark"
                         android:hint="Password"
                         android:textSize="14sp"

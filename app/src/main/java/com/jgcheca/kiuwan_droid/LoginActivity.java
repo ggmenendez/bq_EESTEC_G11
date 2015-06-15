@@ -15,11 +15,13 @@ import android.widget.Toast;
 import com.dd.processbutton.iml.ActionProcessButton;
 import com.google.gson.JsonObject;
 import com.jgcheca.kiuwan_droid.rest.RestClient;
+import com.jgcheca.kiuwan_droid.rest.model.AppKiuwan;
 
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -71,71 +73,100 @@ public class LoginActivity extends AppCompatActivity {
         final Intent loginIntent = new Intent(this,MainActivity.class);
         String credentials = ((EditText)findViewById(R.id.txtUser)).getText().toString() + ":" + ((EditText)findViewById(R.id.txtPassword)).getText().toString();
         String string = "Basic " + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
+        String appName = "Juegos en Grupo Server";
+       /* RestClient.apiService.getAppAnalysis(string,appName,new Callback<List<AppKiuwan>>() {
+                                          @Override
+                                          public void success(List<AppKiuwan> appKiuwans, Response response) {
+                                              TypedInput body = response.getBody();
+                                              try {
+                                                  BufferedReader reader = new BufferedReader(new InputStreamReader(body.in()));
+                                                  StringBuilder out = new StringBuilder();
+                                                  String newLine = System.getProperty("line.separator");
+                                                  String line;
+                                                  while ((line = reader.readLine()) != null) {
+                                                      out.append(line);
+                                                      out.append(newLine);
+                                                  }
 
+                                                  // Prints the correct String representation of body.
+                                                  Log.d("RETROFIT response", String.valueOf(out));
+                                              } catch (IOException e) {
+                                                  e.printStackTrace();
+                                              }
+                                          }
+
+                                          @Override
+                                          public void failure(RetrofitError error) {
+
+                                          }
+                                      });*/
         RestClient.apiService.login(string, new Callback<JsonObject>() {
 
-        @Override
-        public void success(JsonObject s, Response response) {
+                    @Override
+                    public void success(JsonObject s, Response response) {
             /*User userData = new User(((EditText)findViewById(R.id.email)).getText().toString(),"user");
             userData.setSessionId(s.get("user").getAsJsonObject().get("sessionId").getAsString());
             loginIntent.putExtra("user", userData);*/
 
+                        String username = s.get("username").getAsString();
+                        String organization = s.get("organization").getAsString();
+                        loginIntent.putExtra("username", username);
+                        loginIntent.putExtra("organization", organization);
+                        TypedInput body = response.getBody();
+                        try {
+                            BufferedReader reader = new BufferedReader(new InputStreamReader(body.in()));
+                            StringBuilder out = new StringBuilder();
+                            String newLine = System.getProperty("line.separator");
+                            String line;
+                            while ((line = reader.readLine()) != null) {
+                                out.append(line);
+                                out.append(newLine);
+                            }
 
-            TypedInput body = response.getBody();
-            try {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(body.in()));
-                StringBuilder out = new StringBuilder();
-                String newLine = System.getProperty("line.separator");
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    out.append(line);
-                    out.append(newLine);
-                }
+                            // Prints the correct String representation of body.
+                            Log.d("RETROFIT response", String.valueOf(out));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
 
-                // Prints the correct String representation of body.
-                Log.d("RETROFIT response", String.valueOf(out));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+                        startActivity(loginIntent);
+                        btnSignIn.setProgress(0);
+                        Toast.makeText(LoginActivity.this,
+                                "Successfully logged in", Toast.LENGTH_SHORT).show();
+                    }
 
-            startActivity(loginIntent);
-            btnSignIn.setProgress(0);
-            Toast.makeText(LoginActivity.this,
-                    "Successfully logged in", Toast.LENGTH_SHORT).show();
-        }
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Log.d("LoginActivity", "FAILURE");
+                        Log.d("LoginActivity", error.toString());
 
-        @Override
-        public void failure(RetrofitError error) {
-            Log.d("LoginActivity", "FAILURE");
-            Log.d("LoginActivity", error.toString());
+                        Log.d("Tipo de error", error.getKind().toString());
 
-            Log.d("Tipo de error", error.getKind().toString());
+                        // Log.d("Tipo de error", error.);
+                        //error.isNetworkError()
+                        switch (error.getKind()) {
+                            case NETWORK:
+                                Toast.makeText(LoginActivity.this,
+                                        "Network unavailable", Toast.LENGTH_SHORT).show();
+                                break;
+                            case HTTP:
+                                Toast.makeText(LoginActivity.this,
+                                        "Credentials wrong", Toast.LENGTH_SHORT).show();
+                                break;
+                            case UNEXPECTED:
+                                Toast.makeText(LoginActivity.this,
+                                        "UNEXPECTED", Toast.LENGTH_SHORT).show();
+                                break;
+                            case CONVERSION:
+                                Toast.makeText(LoginActivity.this,
+                                        "CONVERSION", Toast.LENGTH_SHORT).show();
+                                break;
+                        }
 
-           // Log.d("Tipo de error", error.);
-            //error.isNetworkError()
-           switch (error.getKind()){
-               case NETWORK:
-                   Toast.makeText(LoginActivity.this,
-                           "Network unavailable", Toast.LENGTH_SHORT).show();
-                   break;
-               case HTTP:
-                   Toast.makeText(LoginActivity.this,
-                           "Credentials wrong", Toast.LENGTH_SHORT).show();
-                   break;
-               case UNEXPECTED:
-                   Toast.makeText(LoginActivity.this,
-                           "UNEXPECTED", Toast.LENGTH_SHORT).show();
-                   break;
-               case CONVERSION:
-                   Toast.makeText(LoginActivity.this,
-                           "CONVERSION", Toast.LENGTH_SHORT).show();
-                   break;
-           }
+                        btnSignIn.setProgress(0);
 
-            btnSignIn.setProgress(0);
-
-        }
-    });
+                    }
+                });
     }
 
 }

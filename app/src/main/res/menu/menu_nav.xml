@@ -1,0 +1,33 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.hmkcode.mongoz.MainActivity" >
+
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/navigation_item_1"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="Applications"/>
+        <item
+            android:id="@+id/navigation_item_2"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="Global"/>
+
+        <item
+            android:id="@+id/navigation_item_3"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="Portfolios"/>
+    </group>
+
+    <item android:title="Sub items">
+        <menu>
+            <item
+                android:icon="@android:drawable/ic_menu_preferences"
+                android:title="Settings" />
+            <item
+                android:icon="@android:drawable/ic_dialog_info"
+                android:title="Sub item 2" />
+        </menu>
+    </item>
+
+</menu>

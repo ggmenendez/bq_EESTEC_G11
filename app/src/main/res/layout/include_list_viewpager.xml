@@ -39,7 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_play_dark"
         app:layout_behavior="com.jgcheca.kiuwan_droid.ScrollBehavior"
-        android:src="@mipmap/ic_done" />
+        />
+
 
 </android.support.design.widget.CoordinatorLayout>
